@@ -74,9 +74,9 @@ DOMAIN-SUFFIX,acgvideo.com
 DOMAIN-SUFFIX,bilibili.com
 DOMAIN-SUFFIX,hdslb.com
 # > iQiyi
-DOMAIN-SUFFIX,iqiyi.com
-DOMAIN-SUFFIX,iqiyipic.com
-DOMAIN-SUFFIX,71.am.com
+##DOMAIN-SUFFIX,iqiyi.com
+##DOMAIN-SUFFIX,iqiyipic.com
+##DOMAIN-SUFFIX,71.am.com
 # > HunanTV
 DOMAIN-SUFFIX,hitv.com
 DOMAIN-SUFFIX,mgtv.com
