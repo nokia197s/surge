@@ -1,0 +1,45 @@
+#!name=Task - All in one By nzw9314
+#!desc=电信营业厅 bilibili 人人视频 喜马拉雅 腾讯新闻
+#!system=ios
+
+# Task配置 By nzw9314
+# GitHub主页(https://github.com/nzw9314)
+# TG通知频道 (https://t.me/nzw9314News)
+# 定时脚本
+
+[Script]
+# 电信营业厅
+# 打开 APP 手动签到一次: 访问下右下角 `我` > `签到` (头像下面)
+电信营业厅 = type=cron,cronexp=20 0 0 * * *,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10000/10000.js,script-update-interval=0
+# > 中国电信
+10000.cookie.js = script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10000/10000.cookie.js,requires-body=true,type=http-request,pattern=^https:\/\/wapside.189.cn:9001\/api\/home\/sign
+
+# bilibili
+# 打开浏览器访问: https://www.bilibili.com 或 https://live.bilibili.com
+哔哩哔哩 = type=cron,cronexp=35 0 0 * * *,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.js,script-update-interval=0
+# 如需银瓜子转硬币，取消下方注释
+瓜子转硬币 = type=cron,cronexp=40 0 0 * * *,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.silver2coin.js,script-update-interval=0
+# > 哔哩哔哩
+# 浏览器访问并登录: https://www.bilibili.com 或 https://live.bilibili.com 系统提示:获取Cookie: 成功
+bilibili.cookie.js = script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.cookie.js,type=http-request,pattern=^https:\/\/(www|live)\.bilibili\.com\/?.?
+
+# 人人视频
+# 打开 APP, 访问下`个人中心`
+人人视频 = type=cron,cronexp=15 1 0 * * *,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/rrtv/rrtv.js,script-update-interval=0
+# > 人人视频
+rrtv.cookie.js = script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/rrtv/rrtv.cookie.js,type=http-request,pattern=^https:\/\/api\.rr\.tv\/user\/profile
+
+# 喜马拉雅
+# 打开 APP, 访问下右下角`账号`
+喜马拉雅 = type=cron,cronexp=40 1 0 * * *,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ximalaya/ximalaya.js,script-update-interval=0
+# > 喜马拉雅
+ximalaya.cookie.js = script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ximalaya/ximalaya.cookie.js,type=http-request,pattern=^https?:\/\/.*\/mobile\-user\/homePage\/.*
+
+# > 腾讯新闻 (By 红鲤鱼与绿鲤鱼与驴 & Macsuny))
+# 打开腾讯新闻app，阅读一篇文章，右下角出现红包，倒计时结束后即可
+腾讯新闻 = type=cron,cronexp=35 0 0 * * *,script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/txnews.js,script-update-interval=0
+# > 腾讯新闻 (By 红鲤鱼与绿鲤鱼与驴 & @Macsuny)
+腾讯新闻 = script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/txnews.js,type=http-request,pattern=https:\/\/api\.inews\.qq\.com\/event\/v1\/user\/event\/report\?, requires-body=true
+
+[MITM]
+hostname = %APPEND% api.inews.qq.com, manga.bilibili.com, m.ximalaya.com, e.189.cn,  *.bilibili.com, wapside.189.cn:9001, *.rr.tv
